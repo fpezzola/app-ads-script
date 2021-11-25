@@ -16,7 +16,7 @@ const execute  = async () => {
   const arrayAppAds = data.split('\r\n');
   const missingLines = [];
   for (const newLine of jsonFile){
-    const exists = arrayAppAds.includes(newLine);
+    const exists = arrayAppAds.includes(newLine) || arrayAppAds.includes(newLine.replace(/\s/g, ''));
     if (!exists){
       console.log(newLine)
       missingLines.push(newLine);
@@ -42,9 +42,9 @@ const execute  = async () => {
 
   const toCSV = new ObjectsToCsv(toPrint);
 
-  await toCSV.toDisk('./raw_app_ads.txt',{headers:false});
+  await toCSV.toDisk('./raw-app-ads.txt',{headers:false});
 
-  cp.exec("cat raw_app_ads.txt | sed 's/,*$//g' | tail -n +2 > app-ads.txt", (error, stdout, stderr) => {
+  cp.exec("cat raw-app-ads.txt | sed 's/,*$//g' | tail -n +2 > app-ads.txt", (error, stdout, stderr) => {
     if (error) {
         console.log(`error: ${error.message}`);
         return;
