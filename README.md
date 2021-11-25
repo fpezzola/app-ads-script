@@ -1,8 +1,8 @@
 # app-ads.txt generation script
 
-## This process download the app-ads.txt from https://wildlifestudios.com/app-ads.txt 
-## and inserts all the new lines introduced in the input.json. Once finished, the new app-ads.txt 
-## be seen as "app-ads.txt".
+This process download the app-ads.txt from https://wildlifestudios.com/app-ads.txt 
+and inserts all the new lines introduced in the input.json. Once finished, the new app-ads.txt 
+be seen as "app-ads.txt".
 
 # How to execute 
 
